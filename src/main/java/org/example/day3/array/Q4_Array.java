@@ -21,10 +21,9 @@ public class Q4_Array {
             }
             movie[seat] += 1;
             System.out.println(seat + 1 + "번 좌석이 예매 되었습니다. ");
-            sum += 1000;
+            sum += 1;
         }
-        System.out.println("총 예매금액: "+sum +"원");
+        System.out.println("예매된 좌석 수: " + sum);
+        System.out.println("총 예매금액: " + sum * 10000 + "원");
     }
-
-
 }
