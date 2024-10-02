@@ -48,17 +48,15 @@ public class Q1_Array {
         Random r = new Random(44);
         int sum1 = 0;
 //        3 - 1. 첫번째값, 세번째값, 다섯번째값, 100 번째값, 990 번째 값을 더한 결과값 출력
-        sum1 = 0;
         int sum2 = 0;
-        int[] random = new int[990];
-        for(int i = 0; i < 990; i++){
+        int[] random = new int[1000];
+        for(int i = 0; i < random.length; i++){
             random[i] = r.nextInt(1000) + 1;
             sum2 += random[i];
         }
-        sum1 = random[0] + random[2] + random[4] + random[99] + random[989];
-        System.out.println(sum1);
+        System.out.println(random[0] + random[2] + random[4] + random[99] + random[989]);
 //        3 - 2. 전체 합계와 평균 출력
-        System.out.println("전체 합계: " + sum2 + " 평균: " + sum2/990);
+        System.out.println("전체 합계: " + sum2 + " 평균: " + (double)(sum2 / random.length));
 //
 //        4. 다음과 같이 값을 입력받아 출력되도록 프로그래밍하시오.
 //        (단, 다음에서 입력한 답이 1 이면 열차, 2 이면 배, 3 이면 비행기를 타고 감.)
@@ -76,7 +74,6 @@ public class Q1_Array {
 //        5. random한 값 1 부터 100 까지 배열에 넣어 전체 출력(씨앗값 :555)
 //        80 보다 큰 수 개수, 70 ~79 인 수 개수, 50 ~69 인 수 개수, 49 보다 작은 수 개수 카운트하여 출력
         int[] randomArray = new int[10];
-        int ran = 0;
         int type01 = 0;
         int type02 = 0;
         int type03 = 0;
@@ -86,7 +83,7 @@ public class Q1_Array {
             randomArray[i] = r.nextInt(100) + 1;
             if(randomArray[i] > 80){
                 type01++;
-            } else if (randomArray[i] > 70) {
+            }else if (randomArray[i] > 70) {
                 type02++;
             }else if (randomArray[i] > 50) {
                 type03++;
