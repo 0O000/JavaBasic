@@ -2,7 +2,7 @@ package org.example.day5.array2;
 
 import java.util.Scanner;
 
-public class Q1_movie {
+public class Q1_Movie {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] movieSeat = new int[10];
