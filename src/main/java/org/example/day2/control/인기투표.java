@@ -38,11 +38,11 @@ public class 인기투표 {
         l4.setText("스테이시");
         l4.setFont(font);
 
-        ImageIcon icon1 = new ImageIcon("src/main/java/image/001.png");
+        ImageIcon icon1 = new ImageIcon("src/main/java/org/example/day2/image/001.png");
         b1.setIcon(icon1);
-        ImageIcon icon2 = new ImageIcon("src/main/java/image/002.png");
+        ImageIcon icon2 = new ImageIcon("src/main/java/org/example/day2/image/002.png");
         b2.setIcon(icon2);
-        ImageIcon icon3 = new ImageIcon("src/main/java/image/003.png");
+        ImageIcon icon3 = new ImageIcon("src/main/java/org/example/day2/image/003.png");
         b3.setIcon(icon3);
 
         f.add(l1);
