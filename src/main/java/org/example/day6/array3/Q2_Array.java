@@ -14,10 +14,10 @@ public class Q2_Array {
         };
         int[] order = new int[menu.length];
         int select = 0;
-        while(true){
+        while (true) {
             System.out.println("주문할 상품을 선택하세요 (1: 샌드위치, 2:바게트, 0: 주문종료): ");
             select = sc.nextInt();
-            if(select == 0){
+            if (select == 0) {
                 break;
             }
             System.out.println("주문할 수량을 입력하세요: ");
@@ -25,7 +25,7 @@ public class Q2_Array {
             order[select - 1] += num;
 
             System.out.println("현재 주문 상황: ");
-            for(int i = 0; i < order.length; i++){
+            for (int i = 0; i < order.length; i++) {
                 System.out.print(menu[i][0] + ": " + order[i] + " ");
             }
         }
