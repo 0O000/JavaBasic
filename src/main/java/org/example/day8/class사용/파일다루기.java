@@ -1,7 +1,6 @@
 package org.example.day8.class사용;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class 파일다루기 {
     public static void main(String[] args) {
@@ -21,5 +20,9 @@ public class 파일다루기 {
                 System.out.println(f);
             }
         }
+        System.out.println(file.getPath());
+        System.out.println(file.getParent());
+        System.out.println(file.getAbsolutePath());
+        //절대 경로
     }
 }
