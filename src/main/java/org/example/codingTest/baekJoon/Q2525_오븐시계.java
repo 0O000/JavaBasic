@@ -11,10 +11,7 @@ public class Q2525_오븐시계 {
         int add = sc.nextInt();
 
         int calHour = calculate(hour, minute, add);
-        int ansHour = (calHour) / 60;
-        if(ansHour >= 24){
-            ansHour = ansHour - 24;
-        }
+        int ansHour = calculateHour((calHour)) / 60;
         int ansMinute = calHour % 60;
 
         System.out.println(ansHour + " " + ansMinute);
