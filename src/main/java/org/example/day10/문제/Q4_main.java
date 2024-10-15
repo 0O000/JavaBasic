@@ -1,6 +1,5 @@
 package org.example.day10.문제;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Q4_main {
