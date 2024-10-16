@@ -3,8 +3,8 @@ package org.example.day12.상속;
 public class 맨 extends 사람 {
     int power;
 
-    public 맨(String name, int age, int power) {
-        super(name, age);
+    public 맨(char gender, String name, int age, int power) {
+        super(gender, name, age);
         this.power = power;
     }
 
