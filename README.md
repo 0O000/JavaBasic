@@ -1,3 +1,3 @@
 <div align="center">
-<h2>[신세계아이앤씨] JAVA 기반 백엔드 개발자 양성 5회</h2>
+<h2>Java 개념정리 및 실무연습</h2>
 </div>
