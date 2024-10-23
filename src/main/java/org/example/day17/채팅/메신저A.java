@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class 메신저A extends JFrame {
+    JTextArea list;
     메신저A(){
         //여기에 코드 다하면, static이 아니여서 더 좋은 코드를 만들 수 있음.
         System.out.println("생성자 시작.");
@@ -18,7 +18,7 @@ public class 메신저A extends JFrame {
         setSize(500, 500);
         getContentPane().setBackground(Color.pink);
 
-        JTextArea list = new JTextArea();
+        list = new JTextArea();
         JTextField input = new JTextField();
         setLayout(new BorderLayout());
         add(list, BorderLayout.CENTER);
@@ -50,7 +50,7 @@ public class 메신저A extends JFrame {
                 try {
                     DatagramSocket socket = new DatagramSocket();
                     byte[] data2 = data.getBytes();
-                    InetAddress ip = InetAddress.getByName("127.0.0.1");
+                    InetAddress ip = InetAddress.getByName("localhost");
                     DatagramPacket packet = new DatagramPacket(data2, data2.length, ip, 7777);
                     socket.send(packet);
                     socket.close();
@@ -67,7 +67,23 @@ public class 메신저A extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public void process() throws Exception {
+        //메신저가 시작하자마자 무한루프로 받는거 돌아가게 해야함.
+        //전화기 역할 소켓만들고!
+        DatagramSocket socket = new DatagramSocket(5555);
+        while (true) {
+            //공간 byte[], packet만들어주고
+            byte[] data = new byte[30];
+            DatagramPacket packet = new DatagramPacket(data, data.length);
+            //받아라!
+            socket.receive(packet);
+            System.out.println(socket.getLocalPort());
+            list.append("너: " + new String(data) + "\n");
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
         메신저A m = new 메신저A();
+        m.process();
     }
 }
