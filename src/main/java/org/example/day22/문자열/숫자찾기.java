@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 public class 숫자찾기 {
     public static void main(String[] args) {

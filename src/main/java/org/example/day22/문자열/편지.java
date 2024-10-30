@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 public class 편지 {
     public int solution(String message) {

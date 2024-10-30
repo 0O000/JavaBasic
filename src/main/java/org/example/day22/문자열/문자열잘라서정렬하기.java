@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 import java.util.ArrayList;
 import java.util.Arrays;

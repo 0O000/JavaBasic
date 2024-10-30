@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 public class 대문자와소문자 {
     public String solution(String my_string) {

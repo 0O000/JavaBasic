@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 public class 수박수박수박 {
     public String solution(int n) {

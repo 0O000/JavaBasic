@@ -1,4 +1,4 @@
-package org.example.day22.문제;
+package org.example.day22.문자열;
 
 import java.util.Arrays;
 
@@ -22,7 +22,15 @@ public class Main {
 //        문자열잘라서정렬하기 sol = new 문자열잘라서정렬하기();
 //        System.out.println(Arrays.toString(sol.solution("hjxhjxgjhxgyxxjxiahx")));
 
-        대문자와소문자 sol = new 대문자와소문자();
-        System.out.println(sol.solution("HeLLo"));
+//        대문자와소문자 sol = new 대문자와소문자();
+//        System.out.println(sol.solution("HeLLo"));
+
+//        잘라서배열로저장하기 sol = new 잘라서배열로저장하기();
+//        System.out.println(Arrays.toString(sol.solution("abc1Addfggg4556b", 6)));
+
+        같은숫자는싫어 sol = new 같은숫자는싫어();
+        int[] arr = {1,1,3,3,0,1,1};
+        System.out.println(Arrays.toString(sol.solution(arr)));
+
     }
 }
