@@ -22,6 +22,21 @@ public class MemberDAO2 {
         System.out.println("2. db연결 성공!");
     }
 
+    public boolean login(MemberVO bag) throws Exception {
+        boolean result = false;
+        String sql = "select id from member where id = ? and pw = ?";
+        //3. sql문 준비
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, bag.getId());
+        ps.setString(2, bag.getPw());
+        //4. sql문 전송 --> 결과가 있으면 result = true;
+        ResultSet table = ps.executeQuery();
+        if(table.next()) {
+            result = true;
+        }
+        return result;
+    }
+
     //기능은 메서드로 정의
     //row하나 검색 --> 워크벤치에서  sql문으로 먼저 테스트
     public MemberVO one(String id) throws Exception {
