@@ -11,11 +11,15 @@ public class DeptListUI {
         //모든 리스트를 가지고 오자.
         ArrayList<DeptVO> list = dao.list();
         //반복해서 꺼내어 출력~! {vo, vo}
-        for (DeptVO bag : list) {
-            System.out.println("deptno: " + bag.getDeptno());
-            System.out.println("dname: " + bag.getDname());
-            System.out.println("loc: " + bag.getLoc());
-            System.out.println("===============");
+        if(list != null){
+            for (DeptVO bag : list) {
+                System.out.println("deptno: " + bag.getDeptno());
+                System.out.println("dname: " + bag.getDname());
+                System.out.println("loc: " + bag.getLoc());
+                System.out.println("===============");
+            }
+        }else{
+            System.out.println("list가 비었습니다.");
         }
     }
 }

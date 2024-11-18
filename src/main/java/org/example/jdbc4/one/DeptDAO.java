@@ -1,9 +1,6 @@
 package org.example.jdbc4.one;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DeptDAO {
@@ -28,22 +25,27 @@ public class DeptDAO {
     //read(select문 작업, 검색(읽기))
     //검색결과가 row 1개, row 여러 개일때마다 작업이 약간 다름.
     //one(int deptno), list()
-    public DeptVO one(int deptno) throws Exception {
-        //검색결과가 row가 가방에 컬럼값 다 넣어서 전달 --> ui
-        DeptVO bag = new DeptVO();
+    public DeptVO one(int deptno) throws SQLException {
+        //검색결과가 row개 ----가방(vo)에 컬럼값 다 넣어서 전달---> ui
+        //DeptVO bag = new DeptVO();
+
         //3단계
-        String sql = "select deptno, dname, loc from dept where deptno = ?";
+        String sql = "select * from dept where deptno = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, deptno);
+
         //4단계
-        //table형태로 검색 결과가 와야하므로, executeQuery()
-        ResultSet table = ps.executeQuery(); //칼럼+값들(row)
-        if(table.next()) {//true
+        //테이블 형태로 검색결과가 와야하므로, executeQuery()
+        ResultSet table = ps.executeQuery(); //컬럼+값들(row)
+        DeptVO bag = null; //지역변수 초기화!
+        if(table.next()){ //true
             //있으면 row에 있는 값들을 꺼내어 vo에 넣자.
+            bag = new DeptVO();
             //ORM
-            bag.setDeptno(table.getInt("deptno"));
-            bag.setDname(table.getString("dname"));//db인덱스는 1번부터 시작
-            bag.setLoc(table.getString("loc"));
+            bag.setDeptno(table.getInt("deptno"));//1
+            bag.setDname(table.getString(2));
+            bag.setLoc(table.getString("loc")); //컬럼명
+            //db의 인덱스는 1부터 시작
         }
         return bag;
     }
@@ -54,7 +56,7 @@ public class DeptDAO {
         //ui에 가방 5개 리턴해서 전달하려면 묶어주어야함.
         //--> 자바에서는 리턴할 때 무조건!! 하나로 묶어서 해야함.
         //가방을 묶어줄 용도로 사용하는 것이 List타입의 객체(ArrayList)를 사용함.
-        ArrayList<DeptVO> list = new ArrayList<>();
+        ArrayList<DeptVO> list = null;
 
         //3단계
         String sql = "select * from dept";
@@ -66,6 +68,10 @@ public class DeptDAO {
         while(table.next()){ //없다고 할때까지(false)반복!
             //있으면 row에 있는 값들을 꺼내어 vo에 넣자.
             //ORM
+            if(list == null){
+                list = new ArrayList<>(); //list가 없으면서 table이 비어있지 않은경우 리스트를 선언해 준다.
+            }
+            list = new ArrayList<>();
             DeptVO bag = new DeptVO();
             bag.setDeptno(table.getInt("deptno"));
             bag.setDname(table.getString("dname"));
